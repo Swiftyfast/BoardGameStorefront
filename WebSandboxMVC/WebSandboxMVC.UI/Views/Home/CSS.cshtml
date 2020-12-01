@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "CSS";
+}
+<main>
+    <section id="cssRightColumn">
+
+        <!--core content, separate from aside sidebar-->
+
+        <article>
+
+            <h1>Different Ways to Apply CSS</h1>
+
+            <section>
+
+                <h2 class="headingStyle">Inline Style</h2>
+
+                Inline styles use the STYLE attribute inside an HTML tag...
+
+                Usually avoided (except for formatting assigned through JavaScript)
+
+                because it's not reusable. Uses semi-colon-separated, CSS property-value
+
+                pairs in the style attribute's value.
+
+                Highest in terms of proximity and specificity, least re-usable.
+
+            </section>
+
+
+
+            <section>
+
+                <h2 class="headingStyle">Internal Style</h2>
+
+                Internal style is defined inside the HEAD tag of a page
+
+                (not header tag). Reusuability is only for that page. Not often used.
+
+                Second in terms of proximity and specificity is determined by selectors used in each rule set.
+
+            </section>
+
+
+
+            <section>
+
+                <h2 class="headingStyle">External Style</h2>
+
+                External style is defined as a link inside the HEAD block of a page
+
+                (not header). Actual styles are in that linked CSS file.
+
+                Reusuability can be for whole site. Best practice.
+
+                Least in terms of proximity and specificity is determined by selectors used in each rule set.
+
+            </section>
+
+
+
+            <section>
+
+                <h2 class="headingStyle">Imported Style</h2>
+
+                Imported style is defined as an import url() statement at the top
+
+                of an external style sheet. Actual CSS is in that linked CSS file.
+
+                Reusuability is for the whole site. This practice is largely depricated but can be seen in legacy code.
+
+            </section>
+
+        </article>
+
+
+
+        <article>
+
+            <h1>CSS Selectors</h1>
+
+            <section>
+
+                <h2 class="headingStyle">By Element/Tag Name</h2> Ex: ul or li
+
+            </section>
+
+
+
+            <section>
+
+                <h2 class="headingStyle">By Class</h2> Ex: Call it by adding
+
+                the class attribute to a tag. Can be used multiple times
+
+                per page. Define it in the CSS using period prefix (.)
+
+            </section>
+
+
+
+            <section>
+
+                <h2 class="headingStyle">By ID</h2> Ex: Call it by adding
+
+                the ID attribute to a tag. Can be used one time
+
+                per page. Define it in the CSS using hashtag prefix (#)
+
+            </section>
+
+        </article>
+
+    </section>
+
+    <aside id="cssLeftColumn">
+
+        <h2 id="asideHeaer"> External Resources</h2>
+
+        <ul class="asideList">
+
+            <li><a href="https://www.w3schools.com/css/default.asp" target="_blank">W3Schools (Links to an external site.) CSS</a></li>
+            <li><a href="https://css-tricks.com" target="_blank">CSS Tricks</a></li>
+            <li><a href="https://css-tricks.com/pseudo-class-selectors" target="_blank">CSS Tricks - Psuedo Class Selectors</a></li>
+            <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validator</a></li>
+            <li><a href="http://www.sololearn.com/Course/CSS" target="_blank">SoloLearn CSS</a></li>
+            <li><a href="http://www.csszengarden.com" target="_blank">CSS Zen Garden</a></li>
+            <li><a href="http://www.tutorialspoint.com/css" target="_blank">TutorialsPoint CSS</a></li>
+            <li><a href="http://htmldog.com/guides/css" target="_blank">HTML Dog (CSS)</a></li>
+            <li><a href="http://caniuse.com" target="_blank">Can I Use</a></li>
+            <li><a href="https://www.colorzilla.com/gradient-editor/" target="_blank">Colorzilla Gradient Generator</a></li>
+        </ul>
+
+    </aside>
+    <div class="clear" />
+</main>

@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="A page all about images" />
+    <meta name="keywords" content="FED1, CSS, HTML, Images, Website Basics, Colors" />
+    <meta name="author" content="John Swift" />
+    <title>Images | Web Sandbox</title>
+    <link href="../css/custom.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="../images/WSfavicon.ico" />
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="../images/Sandbox-48.png" alt="Sandbox site logo" />
+        </a>
+        <h1>
+            Web Sandbox
+        </h1>
+        <p>
+            Notes and Resources for HTML and CSS
+        </p>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li>
+                <a href="../HTML.html"><i class="fa fa-html5" aria-hidden="true"></i> HTML
+                </a>
+            </li>
+            <li>
+                <a href="../CSS.html"><i class="fa fa-css3" aria-hidden="true"></i> CSS</a>
+            </li>
+            <li>
+                <a href="../resources/index.html"><i class="fa fa-book" aria-hidden="true"></i> Resources</a>
+            </li>
+            <li>
+                <a href="Colors.html"><i class="fa fa-paint-brush" aria-hidden="true"></i> Colors</a>
+            </li>
+            <li>
+                <a href="fonts.html"><i class="fa fa-font" aria-hidden="true"></i> Fonts</a>
+            </li>
+            <li>
+                <a href="images.html" class="active"><i class="fa fa-picture-o" aria-hidden="true"></i> Images</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section class="mainWrapper">
+            <article>
+                <h1>Images</h1>
+                <p>
+                    Implementing images in a website can make content more engaging and sometimes deliver information in a more concise way. There are several different image file formats that are widely used in web development.
+                </p>
+                <section>
+                    <h2>JPG or JPEG</h2>
+                    <h3>Characteristics</h3>
+                    <ul>
+                        <li>Highly compressed</li>
+                        <li>Ideal for images with many complex colors (ie photos)</li>
+                        <li>Stands for Joint Photographic Experts Group</li>
+                        <li>Lossy Compression: making changes and saving over the same file will result in degraded image quality.</li>
+                        <li>DO NOT support animation</li>
+                        <li>DO NOT support transparency</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>GIF</h2>
+                    <h3>Characteristics</h3>
+                    <ul>
+                        <li>ideal for line art, illustrations, or images with few complex colors</li>
+                        <li>Lossless Compression: No quality deterioration</li>
+                        <li>They support basic animation</li>
+                        <li>They support transparency</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>PNG</h2>
+                    <h3>Characteristics</h3>
+                    <ul>
+                        <li>Lossless Compression: no quality deterioration</li>
+                        <li>DO NOT support animation</li>
+                        <li>They support transparency</li>
+                    </ul>
+                </section>
+            </article>
+
+            <article id="imageGallery">
+                <h1>Image Gallery</h1>
+                <div>
+                    <div class="galleryItem">
+                        <a href="../images/goran-ivos-246271-unsplash.jpg" target="_blank">
+                            <img src="../images/goran-ivos-246271-unsplash.jpg" alt="Open laptop sitting on the arm of a chair with computer code on the screen" title="Code" width="600" height="400" />
+                        </a>
+                        <div class="description">This is a sample image description.</div>
+                    </div>
+                    <div class="galleryItem">
+                        <a href="../images/goran-ivos-422398-unsplash.jpg" target="_blank">
+                            <img src="../images/goran-ivos-422398-unsplash.jpg" alt="Open laptop with code on screen sitting on a table beside coffee." title="Code and Coffee" width="600" height="400" />
+                        </a>
+                        <div class="description">This is a sample image description.</div>
+                    </div>
+                    <div class="galleryItem">
+                        <a href="../images/greg-rakozy-129733-unsplash.jpg" target="_blank">
+                            <img src="../images/greg-rakozy-129733-unsplash.jpg" alt="HTML and CSS book sitting on a table" title="HTML and CSS Books" width="600" height="400" />
+                        </a>
+                        <div class="description">This is a sample image description.</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="galleryItem">
+                        <a href="../images/hitesh-choudhary-562332-unsplash.jpg" target="_blank">
+                            <img src="../images/hitesh-choudhary-562332-unsplash.jpg" alt="Man sitting in front of computer pointing to a yellow sticky note with code written on it." title="Code Note" width="600" height="400" />
+                        </a>
+                        <div class="description">This is a sample image description.</div>
+                    </div>
+                    <div class="galleryItem">
+                        <a href="../images/markus-spiske-507983-unsplash.jpg" target="_blank">
+                            <img src="../images/markus-spiske-507983-unsplash.jpg" alt="Black screen displaying computer code with intermitten colored keywords" title="Code" width="600" height="400" />
+                        </a>
+                        <div class="description">This is a sample image description.</div>
+                    </div>
+                    <div class="galleryItem">
+                        <a href="../images/pankaj-patel-561360-unsplash.jpg" target="_blank">
+                            <img src="../images/pankaj-patel-561360-unsplash.jpg" alt="Split angled black display screen with code written." title="Code" width="600" height="400" />
+                        </a>
+                        <div class="description">This is a sample image description.</div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <aside>
+            <h2 id="asideHeader"> External Resources</h2>
+            <ul class="asideList">
+                <li>
+                    <a href="http://www.w3schools.com/cssref/css3_pr_background.asp">W3Schools Background Images</a>
+                </li>
+                <li>
+                    <a href="https://unsplash.com/">Stock Images</a>
+                </li>
+                <li>
+                    <a href="https://www.favicon.io/">Favicon Generator</a>
+                </li>
+            </ul>
+        </aside>
+    </main>
+    <footer>
+        &copy; Copyright 2020 John Swift
+    </footer>
+</body>
+</html>
