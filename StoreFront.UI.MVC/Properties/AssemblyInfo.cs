@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("StoreFront")]
+[assembly: AssemblyTitle("StoreFront.UI.MVC")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("StoreFront")]
+[assembly: AssemblyProduct("StoreFront.UI.MVC")]
 [assembly: AssemblyCopyright("Copyright © HP Inc. 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fb1ad9ef-1736-4d72-ae90-15cd988bde00")]
+[assembly: Guid("1c355483-9886-4ec4-b915-da9a94a7aac2")]
 
 // Version information for an assembly consists of the following four values:
 //
