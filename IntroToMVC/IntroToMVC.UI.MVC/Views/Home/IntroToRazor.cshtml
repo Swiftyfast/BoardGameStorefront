@@ -1,0 +1,76 @@
+﻿
+@{
+    //The @ symbol starts a Razor block, calls an HTML helper method, or creates a Razor comment.
+    //A multiline Razor block, like this one, is just C#. You are writing C# code once you implement Razor.
+    
+    ViewBag.Title = "Intro To Razor";
+    //The ViewBag is a dynamic variable that allows us to pass values between Controller actions and Views or from the view to the shared layout.
+}
+
+<!-- This is an HTML comment. End users can see this content by inspecting the page or viewing the View Source in the browser. -->
+@* This is a Razor comment. It is a server-side note. Therefore, it is not passed to the broswer and cannot be seen by the user. *@
+
+<h2>@ViewBag.Title</h2>
+
+@* You can add as many Razor code blocks as necessary *@
+
+@{ 
+    ViewBag.Info = "This is important";
+}
+
+<h3>
+    Razor Description:
+</h3>
+<p>
+    Razor is a syntax that allows for the injection of C# code into an HTML page. This allows us to perform C# logic in the front end as well as hide our comments from end users and use HTML helper methods to render HTML code for us dynamically. If you need to escape the C# syntax and go back to HTML you can wrap text in an HTML tag(span, ul, h2, etc.) or you can use an At Symbol and colon.  Razor Syntax updates the browser with the results of the process using a process called adaptive rendering, meaning that only the text or value is sent to the browser. The C# code is not displayed.
+</p>
+
+<h4>
+    Hyperlinks and Razor Helpers:
+</h4>
+<ul>
+    @* ActionLink: (TactionLink)*@
+    <li>
+        @Html.ActionLink("Home (HTMLActionLink)", "Index", "Home")
+    </li>
+    <li>
+        @Html.ActionLink("Home (HTMLActionLink with a class)", "Index", "Home", null, new {@class="btn btn-primary"})
+        @* new {} is a new anonymous object that is used here to add a class to the hyperlink*@
+    </li>
+    @* URL Action*@
+    <li>
+        <a href="@Url.Action("Index", "Home")">Home (URLAction)</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Home (URLAction with a class)</a>
+    </li>
+    <li>
+        <a href="~/Home/Index">Home Using Root-Relative Syntax</a>
+        @* This is the least-perferable method as it bypasses any logic built into the controller*@
+    </li>
+</ul>
+
+@* We can use Razor to inject C# functionality:*@
+@if (User.IsInRole("Admin"))
+{
+    <a href="#">Wipe the Database!</a>
+}
+
+<ul>
+    @for (int i = 0; i < 10; i++)
+    {
+        <li>@i</li>
+    }
+</ul>
+@* Two ways of escaping C# back to HTML*@
+@if (User.Identity.IsAuthenticated)
+{
+    <span>Welcome, user!</span>
+    @:You are logged in!
+}
+
+If you note C# in the HTML page it will be become text:<br />
+//If(true){ Console.WriteLine("true")}
+@{ 
+    //if(true)...
+}
