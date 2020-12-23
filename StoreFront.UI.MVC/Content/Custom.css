@@ -1,0 +1,7 @@
+﻿
+/* Fixing the dropdown button weirdness */
+
+.nav-tabs .nav-item {
+    margin-bottom: 1px;
+    vertical-align: 0em;
+}

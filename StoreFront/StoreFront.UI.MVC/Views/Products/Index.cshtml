@@ -1,0 +1,84 @@
+﻿@model IEnumerable<StoreFront.DATA.EF.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>@ViewBag.Title</h2>
+<br />
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table data-table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ImagePath)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.UnitsSold)
+            </th>*@
+
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryStatu.InventoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publisher.PublisherName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/Content/images/productImages/t_@item.ImagePath" alt="Book cover" title="@item.ProductName" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InventoryStatu.InventoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publisher.PublisherName)
+                </td>
+                <td>
+                    @*<a href="@Url.Action("Edit", "Books", new { id=item.BookID })">*@
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".data-table").DataTable({
+                //"order": [[1, "asc"]]
+            });
+        });
+    </script>
+}

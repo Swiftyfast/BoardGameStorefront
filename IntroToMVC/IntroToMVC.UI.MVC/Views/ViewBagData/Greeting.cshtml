@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Greeting";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form method="get">
+    <div class="row">
+        <div class="col-md-4">
+            First Name:<input type="text" name="firstName" />
+        </div>
+        <div class="col-md-4">
+            Last Name:<input type="text" name="lastName" />
+        </div>
+        <div class="col-md-2">
+            <input type="submit" value="Click for Greeting!" class="btn btn-success"/>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-danger" style="width: 125px" href="@Url.Action("Greeting", "ViewBagData")">Reset</a>
+        </div>
+    </div>
+</form>
+
+<!-- If the data has been provided show the user their greeting -->
+@if(ViewBag.Greeting != null)
+{
+    <h2>@ViewBag.Greeting</h2>
+}
+

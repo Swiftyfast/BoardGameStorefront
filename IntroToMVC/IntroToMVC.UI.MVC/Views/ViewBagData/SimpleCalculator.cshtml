@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "SimpleCalculator";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h4>Please provide 2 values and select the operator that you wish to use.</h4>
+
+<form method="get">
+    <div class="row">
+        <div class="col-md-3">
+            Value 1: <input type="number" name="number1" />
+        </div>
+        <div class="col-md-3">
+            Operator: 
+            <select name="function">
+                <option>Add</option>
+                <option>Subtract</option>
+                <option>Multiply</option>
+                <option>Divide</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            Value 2: <input type="number" name="number2" />
+        </div>
+        <div class="col-md-2">
+            <input type="submit" value="Calculate" class="btn btn-success"/>
+        </div>
+        <div class="col-md-1">
+            <a href="@Url.Action("SimpleCalculator", "ViewBagData")">Reset</a>
+        </div>
+    </div>
+</form>
+
+@if (ViewBag.Answer != null)
+{
+    <h2>@ViewBag.Answer</h2>
+}
+
+@*@if (Request.QueryString["Number1"] != null)
+{
+
+}*@

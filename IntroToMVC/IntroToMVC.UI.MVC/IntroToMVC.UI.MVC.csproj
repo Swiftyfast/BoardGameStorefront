@@ -121,9 +121,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IntroToADOController.cs" />
+    <Compile Include="Controllers\StronglyTypedDataController.cs" />
+    <Compile Include="Controllers\ViewBagDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactViewModel.cs" />
+    <Compile Include="Models\FamilyMemberViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,10 +168,31 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\IntroToRazor.cshtml" />
+    <Content Include="Views\ViewBagData\Index.cshtml" />
+    <Content Include="Views\ViewBagData\Greeting.cshtml" />
+    <Content Include="Views\ViewBagData\SimpleCalculator.cshtml" />
+    <Content Include="Views\ViewBagData\Module6MadLib.cshtml" />
+    <Content Include="Views\ViewBagData\Module6WaterLab.cshtml" />
+    <Content Include="Views\ViewBagData\Module6ChangeLab.cshtml" />
+    <Content Include="Views\ViewBagData\Module6MaxMinAverage.cshtml" />
+    <Content Include="Views\ViewBagData\ShowFamilyMember.cshtml" />
+    <Content Include="Views\StronglyTypedData\Index.cshtml" />
+    <Content Include="Views\StronglyTypedData\SingleFamilyMember.cshtml" />
+    <Content Include="Views\StronglyTypedData\All.cshtml" />
+    <Content Include="Views\StronglyTypedData\Add.cshtml" />
+    <Content Include="Views\ViewBagData\Module6TempConverter.cshtml" />
+    <Content Include="Views\StronglyTypedData\Contact.cshtml" />
+    <Content Include="Views\StronglyTypedData\EmailConfirmation.cshtml" />
+    <Content Include="Views\IntroToADO\Index.cshtml" />
+    <Content Include="Views\IntroToADO\GetProducts.cshtml" />
+    <Content Include="Views\IntroToADO\GetDiscontinuedProducts.cshtml" />
+    <Content Include="Views\IntroToADO\DisplayProductPriceTwenty.cshtml" />
+    <Content Include="Views\IntroToADO\AllCategories.cshtml" />
+    <Content Include="Views\ViewBagData\Module6InterestCalc.cshtml" />
+    <Content Include="Views\IntroToADO\AddCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -180,6 +206,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IntroToMVC.DATA.ADO\IntroToMVC.DATA.ADO.csproj">
+      <Project>{e58a4fe4-a10f-4a18-8e10-80a0af6a16f8}</Project>
+      <Name>IntroToMVC.DATA.ADO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntroToMVC.DATA.DOMAIN\IntroToMVC.DATA.DOMAIN.csproj">
+      <Project>{ebacfbfd-19b9-4bb8-9409-d3136430a87f}</Project>
+      <Name>IntroToMVC.DATA.DOMAIN</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

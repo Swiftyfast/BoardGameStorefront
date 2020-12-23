@@ -1,0 +1,40 @@
+﻿@model IEnumerable<IntroToMVC.UI.MVC.Models.FamilyMemberViewModel>
+
+@{
+    ViewBag.Title = "All Family Members";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @*Use 2 parameters when moving between views in the same folder*@
+    @Html.ActionLink("Add new Family Member", "Add")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Relation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Relation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthday)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BoardGameStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="20" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="DirectReportTo" Type="int" />
+          <Property Name="DepartmentID" Type="int" />
+        </EntityType>
+        <EntityType Name="InventoryStatus">
+          <Key>
+            <PropertyRef Name="InventoryID" />
+          </Key>
+          <Property Name="InventoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InventoryName" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="Price" Type="money" />
+          <Property Name="UnitsSold" Type="int" />
+          <Property Name="InventoryStatus" Type="int" />
+          <Property Name="PublisherID" Type="int" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Publishers">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PublisherName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+          <Property Name="State" Type="char" MaxLength="2" />
+          <Property Name="Country" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_Employees_Departments">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Employees1" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Employees1">
+              <PropertyRef Name="DirectReportTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_InventoryStatus">
+          <End Role="InventoryStatus" Type="Self.InventoryStatus" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InventoryStatus">
+              <PropertyRef Name="InventoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="InventoryStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Publishers">
+          <End Role="Publishers" Type="Self.Publishers" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publishers">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BoardGameStoreModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InventoryStatus" EntityType="Self.InventoryStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publishers" EntityType="Self.Publishers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Employees_Departments" Association="Self.FK_Employees_Departments">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Employees" Association="Self.FK_Employees_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Employees1" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_InventoryStatus" Association="Self.FK_Products_InventoryStatus">
+            <End Role="InventoryStatus" EntitySet="InventoryStatus" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Publishers" Association="Self.FK_Products_Publishers">
+            <End Role="Publishers" EntitySet="Publishers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BoardGameStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Departments" FromRole="Departments" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="DirectReportTo" Type="Int32" />
+          <Property Name="DepartmentID" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Employees_Departments" FromRole="Employees" ToRole="Departments" />
+          <NavigationProperty Name="Employees1" Relationship="Self.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="InventoryStatu">
+          <Key>
+            <PropertyRef Name="InventoryID" />
+          </Key>
+          <Property Name="InventoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InventoryName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_InventoryStatus" FromRole="InventoryStatus" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnitsSold" Type="Int32" />
+          <Property Name="InventoryStatus" Type="Int32" />
+          <Property Name="PublisherID" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+          <NavigationProperty Name="InventoryStatu" Relationship="Self.FK_Products_InventoryStatus" FromRole="Products" ToRole="InventoryStatus" />
+          <NavigationProperty Name="Publisher" Relationship="Self.FK_Products_Publishers" FromRole="Products" ToRole="Publishers" />
+          <Property Name="ImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PublisherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Publishers" FromRole="Publishers" ToRole="Products" />
+        </EntityType>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Departments">
+          <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employees1" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Employees1">
+              <PropertyRef Name="DirectReportTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_InventoryStatus">
+          <End Role="InventoryStatus" Type="Self.InventoryStatu" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InventoryStatus">
+              <PropertyRef Name="InventoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="InventoryStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Publishers">
+          <End Role="Publishers" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publishers">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BoardGameStoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="InventoryStatus" EntityType="Self.InventoryStatu" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Publishers" EntityType="Self.Publisher" />
+          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Departments" Association="Self.FK_Employees_Departments">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Employees" Association="Self.FK_Employees_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Employees1" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_InventoryStatus" Association="Self.FK_Products_InventoryStatus">
+            <End Role="InventoryStatus" EntitySet="InventoryStatus" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Publishers" Association="Self.FK_Products_Publishers">
+            <End Role="Publishers" EntitySet="Publishers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BoardGameStoreModelStoreContainer" CdmEntityContainer="BoardGameStoreEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="BoardGameStoreModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="BoardGameStoreModel.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="BoardGameStoreModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DirectReportTo" ColumnName="DirectReportTo" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InventoryStatus">
+            <EntityTypeMapping TypeName="BoardGameStoreModel.InventoryStatu">
+              <MappingFragment StoreEntitySet="InventoryStatus">
+                <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
+                <ScalarProperty Name="InventoryName" ColumnName="InventoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="BoardGameStoreModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="UnitsSold" ColumnName="UnitsSold" />
+                <ScalarProperty Name="InventoryStatus" ColumnName="InventoryStatus" />
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publishers">
+            <EntityTypeMapping TypeName="BoardGameStoreModel.Publisher">
+              <MappingFragment StoreEntitySet="Publishers">
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+                <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Strongly Typed Data";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>@ViewBag.Action</p>
+<p>
+    Strongly typed views occur when there is a model of type(domain, entity, view, poco) associated with it.
+    The model will be delared at the top of the view
+</p>
+<p>
+    The pages linked below are examples of using the ViewBag object to transport data between an action and a view. The ViewBag object is scoped directly between an action and its associated view.
+    It cannot be passed from one action to another or between views. Except when passing to the _Layout view.
+</p>
+
+<ul>
+    <li>@Html.ActionLink("Greeting", "Greeting", "ViewBagData")</li>
+    <li>@Html.ActionLink("Simple Calculator", "SimpleCalculator", "ViewBagData")</li>
+    <li>@Html.ActionLink("Lab 6 - MadLibs", "Module6MadLib", "ViewBagData")</li>
+</ul>

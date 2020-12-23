@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Module6MadLib";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form method="get">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" name="foreignCountry" placeholder="Foreign Country" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <input type="text" name="adjective" placeholder="Adjective" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <input type="text" name="animal" placeholder="Animal" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" name="verb" placeholder="Verb" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <input type="text" name="place" placeholder="Place" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <input type="text" name="typeOfLiquid" placeholder="Type of Liquid" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <div class="row text-center">
+        <input type="submit" value="Create Madlib" />
+    </div>
+</form>
+
+@if (ViewBag.MadLib != null)
+{
+    <h2>@ViewBag.MadLib</h2>
+}

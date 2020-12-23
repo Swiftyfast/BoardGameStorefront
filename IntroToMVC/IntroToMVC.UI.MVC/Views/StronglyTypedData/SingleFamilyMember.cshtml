@@ -1,0 +1,48 @@
+﻿@model IntroToMVC.UI.MVC.Models.FamilyMemberViewModel
+@* Lower case m(model) is the class assocaiated*@
+@{
+    ViewBag.Title = "Single Family Member";
+}
+
+<h2>@ViewBag.Title</h2>
+<h5>@ViewBag.Hello</h5>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <!-- This is a razor display helper that requires a Linq Statement -->
+            <!-- Razor Helper    Linq Statement of the Variable=> variable.Property-->
+            @Html.DisplayNameFor(model => model.Name)
+            <!-- DisplayNameFor() supplies the property name-->
+        </dt>
+
+        <dd>
+            <!-- DisplayFor() supplies the property value -->
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Relation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Relation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+    </dl>
+</div>
+
+<h2>Manual Display</h2>
+<div>
+    <strong>Name: </strong> @Model.Name @*Object properties value*@ <br />
+    <strong>Relationship: </strong> @Model.Relation<br/>
+    <strong>Birthday: </strong>@Model.Birthday.ToString("MM/dd/yyyy")
+</div>

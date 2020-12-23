@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Stronly Typed Data";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    Strongly typed views occur when there is amodel of any type associated with it. The model will be declared at the top of the view. That is the only datatyped that will be accepted to be passed to the view. The viewBag item is still valid, as it is not its own datatype. Before we connect to data, we are going to use the data we setup internally in this application that is not associated with a database. The data we're using had its class defined in the models folder under FamilyMemberViewModel, and the controller associated will handle any activity with the model.
+</p>
+
+<h2>Strongly Typed Views</h2>
+<ul>
+    <li>@Html.ActionLink("Single Family Member", "SingleFamilyMember", "StronglyTypedData")</li>
+    <li>@Html.ActionLink("All Family Members", "All", "StrongTypedData")</li>
+    <li>@Html.ActionLink("Add a family member", "Add", "StrongTypedData")</li>
+</ul>

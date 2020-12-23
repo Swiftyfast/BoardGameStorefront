@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    ADO.NET very genericaly is the technology/process associated with adding data to an ASP.NET website.
+    The version shown in our examples is Connected Sql. Connected Sql means that every time there is a data request a round trip will be made to the server to execute the requested query.
+    Disconnected Sql would store all requests and be referred to as a batch process, typically run on the off house hours of the business. We don't show any examples in this track of disconnected sql, but it can be handy to know it is out there. In order to use connected Sql, we must add the Namespace System.Data.SqlClient
+</p>
+<p>
+    In order for Connected Sql to function there are some basic steps that must be followed.
+    <ul>
+        <li>Define the connection string (in the C# code by building the string out or by referencing one in the web.config</li>
+        <li>Create a SqlConnection object (requires a connection string as a parameter)</li>
+        <li>Create a SqlCommand object (requires CommandText and a SqlConnection Object</li>
+        <li>Execute the Command</li>
+        <li>Return results to the client</li>
+    </ul>
+</p>
+
+<ul>
+    <li>@Html.ActionLink("All Products", "GetProducts", "IntroToADO")</li>
+    <li>@Html.ActionLink("Dicontinued Products", "GetDicontinuedProducts", "IntroToADO")</li>
+</ul>
