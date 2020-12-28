@@ -55,13 +55,8 @@ addEventListener("load", function () {
                     <li ><a href="@Url.Action("Index", "Products")">Products</a></li>
                     <li ><a href="@Url.Action("Index", "Departments")">Services</a></li>
                     <li ><a href="@Url.Action("Index","Employees")">Meet our team</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin Login</a>
-                        <div class="dropdown-menu">
-                            @*@Html.ActionLink("Authors", "Index", "Authors", new { @class = "dropdown-item" })
-                            @Html.ActionLink("Links", "Index", "Hyperlinks", new { @class = "dropdown-item" })
-                            @Html.ActionLink("Categories", "Index", "Categories", new { @class = "dropdown-item" })*@
-                        </div>
+                    <li >
+                        <a href="#">Admin Login</a>
                     </li>
                     <li class="last-grid"><a href="#">Contact</a></li>
                     @*Maybe there should be a login partial here*@
@@ -105,13 +100,12 @@ addEventListener("load", function () {
                 <div class="col-lg-3 col-sm-6 footer-top">
                     <h4 class="mb-sm-4 mb-3 w3f_title">Contact Info</h4>
                     <ul class="list-w3">
-                        <li><span class="fa mr-1 fa-map-marker"></span>2130 Fulton Street, San Diego, CA 94117-1080 USA</li>
-                        <li class="my-2"><span class="fa mr-1 fa-phone"></span>1-600-1234-567</li>
-                        <li class="my-2"><span class="fa mr-1 fa-phone"></span>1-600-1234-567</li>
-                        <li class=""><span class="fa mr-1 fa-envelope"></span><a href="mailto:info@example.com">info@example.com</a></li>
+                        <li><span class="fa mr-1 fa-map-marker"></span>2130 Made Up Street, San Diego, CA 94117-1080 USA</li>
+                        <li class="my-2"><span class="fa mr-1 fa-phone"></span>1-913-555-5678</li>
+                        <li class=""><span class="fa mr-1 fa-envelope"></span><a href="#">info@boardgamestore.com</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-sm-6 footv3-left mt-sm-0 mt-4">
+                @*<div class="col-lg-3 col-sm-6 footv3-left mt-sm-0 mt-4">
                     <h4 class="mb-sm-4 mb-3 w3f_title"> Our Platforms</h4>
                     <ul class="list-w3">
                         <li class="my-2">
@@ -195,18 +189,18 @@ addEventListener("load", function () {
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div>*@
 
                 <div class="col-lg-2 col-sm-4 mt-lg-0 mt-sm-5 mt-4">
                     <h4 class="mb-4 w3f_title">Other Links</h4>
                     <ul class="list-w3">
                         <li class="my-2">
-                            <a href="services.html">
+                            <a href="@Url.Action("Index", "Departments")">
                                 Our Services
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="about.html">
+                            <a href="@Url.Action("Index", "Home")">
                                 About Us
                             </a>
                         </li>
@@ -240,7 +234,7 @@ addEventListener("load", function () {
                 </div>
                 <div class="col-lg-5">
                     <ul class="list-w3 d-sm-flex">
-                        <li>
+                        @*<li>
                             <a href="#">
                                 Privicy Policy
                             </a>
@@ -254,7 +248,7 @@ addEventListener("load", function () {
                             <a href="#">
                                 Disclaimer.
                             </a>
-                        </li>
+                        </li>*@
                         <li>
                             <a href="#">
                             </a>
