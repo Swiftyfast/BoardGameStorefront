@@ -185,6 +185,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\CartItemViewModel.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -256,6 +257,10 @@
     <Content Include="Content\images\sort_desc_disabled.png" />
     <Content Include="Content\images\stats-bg.jpg" />
     <Content Include="Content\images\stats1.jpg" />
+    <Content Include="Content\images\storefrontBanner.jfif" />
+    <Content Include="Content\images\storefrontCatan.jfif" />
+    <Content Include="Content\images\storefrontChess.jfif" />
+    <Content Include="Content\images\storefrontDice.jfif" />
     <Content Include="Content\images\team1.jpg" />
     <Content Include="Content\images\team2.jpg" />
     <Content Include="Content\images\team3.jpg" />
@@ -357,7 +362,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -430,6 +434,8 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Categories\CategoryDetails.cshtml" />
     <Content Include="Views\Categories\CategoryCreate.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\EmailConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -58,7 +58,7 @@ addEventListener("load", function () {
                     <li >
                         <a href="#">Admin Login</a>
                     </li>
-                    <li class="last-grid"><a href="#">Contact</a></li>
+                    <li class="last-grid"><a href="@Url.Action("Contact", "Home")">Contact</a></li>
                     @*Maybe there should be a login partial here*@
                     <li>
                         @if (Session["cart"] != null && ((Dictionary<int, StoreFront.UI.MVC.Models.CartItemViewModel>)Session["cart"]).Count > 0
