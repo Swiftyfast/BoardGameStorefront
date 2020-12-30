@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace StoreFront.UI.MVC
+namespace IdentitySample
 {
     public class FilterConfig
     {

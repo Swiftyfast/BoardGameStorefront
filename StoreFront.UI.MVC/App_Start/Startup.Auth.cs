@@ -2,11 +2,11 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using StoreFront.UI.MVC.Models;
+using IdentitySample.Models;
 using Owin;
 using System;
 
-namespace StoreFront.UI.MVC
+namespace IdentitySample
 {
     public partial class Startup
     {

@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace StoreFront.UI.MVC
+namespace IdentitySample
 {
     public class RouteConfig
     {

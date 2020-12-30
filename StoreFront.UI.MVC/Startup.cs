@@ -1,6 +1,6 @@
 ﻿using Owin;
 
-namespace StoreFront.UI.MVC
+namespace IdentitySample
 {
     public partial class Startup
     {
