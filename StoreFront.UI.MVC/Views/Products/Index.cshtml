@@ -9,9 +9,9 @@
     <br />
     <br />
     <br />
-    <p>
+    @*<p>
         @Html.ActionLink("Create New", "Create")
-    </p>
+    </p>*@
     <table class="table data-table table-striped">
         <thead>
             <tr>
@@ -67,7 +67,7 @@
                         @*<a href="@Url.Action("Edit", "Books", new { id=item.BookID })">*@
                         @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
                         @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.ProductID })*@
                     </td>
                 </tr>
             }
