@@ -5,15 +5,18 @@
 }
 
 <div class="myContainerClass">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <h2>@ViewBag.Title</h2>
-    <br />
-    <br />
-    <br />
+
     @if (User.IsInRole("Admin"))
     {
         <p>
-                @Html.ActionLink("Create New", "Create")
-            </p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
     }
 
     <table class="table data-table table-striped">
