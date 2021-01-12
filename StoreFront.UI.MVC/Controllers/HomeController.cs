@@ -51,7 +51,7 @@ namespace StoreFront.UI.MVC.Controllers
 
             SmtpClient client = new SmtpClient("mail.johndavidswift.com");
 
-            client.Credentials = new NetworkCredential("no-reply@johndavidswift.com", "LOL NOPE");
+            client.Credentials = new NetworkCredential("no-reply@johndavidswift.com", "LOL_NOPE");
             //client.port = 8889;
 
             try
