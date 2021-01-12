@@ -76,6 +76,7 @@ namespace StoreFront.DATA.EF//.Metadata
         //public int InventoryID { get; set; }
         [Required(ErrorMessage = "* Required")]
         [StringLength(15, ErrorMessage = "* Inventory name must be 15 characters or less.")]
+        [Display(Name = "Inventory Status")]
         public string InventoryName { get; set; }
     }
 
@@ -93,6 +94,7 @@ namespace StoreFront.DATA.EF//.Metadata
         public string ProductName { get; set; }
 
         [DisplayFormat(NullDisplayText = "[N/A]")]
+        [Display(Name = "Category")]
         public Nullable<int> CategoryID { get; set; }
 
         [Range(0, double.MaxValue, ErrorMessage = "* The value ust be a valid number, 0 or larger")]

@@ -55,11 +55,22 @@ addEventListener("load", function () {
                     <li ><a href="@Url.Action("Index", "Products")">Products</a></li>
                     <li ><a href="@Url.Action("Index", "Departments")">Services</a></li>
                     <li ><a href="@Url.Action("Index","Employees")">Meet our team</a></li>
-                    <li >
-                        <a href="@Url.Action("Login", "Account")">Admin Login</a>
+                    <li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()">Log Off</a>
+                            }
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "Account")">Admin Login</a>
+                        }
+
                     </li>
                     <li class="last-grid"><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-                    @*Maybe there should be a login partial here*@
                     <li>
                         @if (Session["cart"] != null && ((Dictionary<int, StoreFront.UI.MVC.Models.CartItemViewModel>)Session["cart"]).Count > 0
                             )
@@ -205,12 +216,7 @@ addEventListener("load", function () {
                             </a>
                         </li>
                         <li class="my-2">
-                            <a href="blog.html">
-                                Company Blog
-                            </a>
-                        </li>
-                        <li class="my-2">
-                            <a href="contact.html">
+                            <a href="@Url.Action("Contact", "Home")">
                                 Contact Us
                             </a>
                         </li>
