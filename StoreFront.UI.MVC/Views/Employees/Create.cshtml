@@ -8,6 +8,9 @@
 <br />
 <br />
 <br />
+@if (User.IsInRole("Admin"))
+{
+
 <div class="myContainerClass">
     <h2>Add new Hire</h2>
 
@@ -80,6 +83,13 @@
         @Html.ActionLink("Back to List", "Index")
     </div>
 </div>
+
+} else
+{
+    <div class="myContainerClass">
+        <p>Please login to create an Employee Record.</p>
+    </div>
+}
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

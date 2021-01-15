@@ -7,6 +7,9 @@
 <br />
 <br />
 <br />
+@if (User.IsInRole("Admin"))
+{
+
 <div class="myContainerClass">
     <h2>@ViewBag.Title</h2>
 
@@ -76,3 +79,11 @@
         }
     </div>
 </div>
+
+}
+else
+{
+    <div class="myContainerClass">
+        <p>You must log in to delete a product.</p>
+    </div>
+}

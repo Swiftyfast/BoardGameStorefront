@@ -8,6 +8,9 @@
 <br />
 <br />
 <br />
+@if (User.IsInRole("Admin"))
+{
+
 <div class="myContainerClass">
     <h2>@ViewBag.Title</h2>
 
@@ -90,6 +93,13 @@
         @Html.ActionLink("Back to List", "Index")
     </div>
 </div>
+
+} else
+{
+    <div class="myContainerClass">
+        <p>Please log in to edit a product.</p>
+    </div>
+}
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
