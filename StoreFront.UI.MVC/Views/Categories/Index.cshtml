@@ -1,35 +1,112 @@
 ﻿@model IEnumerable<StoreFront.DATA.EF.Category>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Categories Index";
 }
-<br/>
 <br />
 <br />
-<h2>Index</h2>
+<br />
+<br />
+<br />
+<br />
+<div class="myContainerClass">
+    <h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th></th>
-    </tr>
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+    <p class="row-border">
+        <button id="toggleCategoryCreate" class="btn btn-primary text-right pull-left">Add New</button>
+    </p>
+    <div id="CategoryCreate">
+        @Html.Partial("CategoryCreate", new StoreFront.DATA.EF.Category())
+    </div>
+    <table class="table" id="CategoriesTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
-        </td>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.CategoryID })*@
+                    @Ajax.ActionLink("Delete", "AjaxDelete", "Categories", new { id = item.CategoryID }, new AjaxOptions {
+                   HttpMethod = "POST",
+                   Confirm = $"Are you sure you want to delete {item.CategoryName} from the Categories table?",
+                   OnSuccess = "deleteConfirmed",
+                   OnFailure = "deleteFailed"
+               })
+                </td>
+            </tr>
+        }
+
+        @*@Ajax.ActionLink("Delete", "AjaxDelete", "Authors", new { id = item.AuthorID}, new AjaxOptions
+            {
+                HttpMethod = "POST",
+                Confirm = $"Are you sure you want to delete {item.FirstName} {item.LastName} from the authors table?",
+                OnSuccess = "deleteConfirmed",
+                OnFailure = "deleteFailed"
+            })*@
+
+    </table>
+</div>
+@section scripts{
+    <script>
+        //******AJAX DELETE CONFIRMATION******
+        function deleteConfirmed(response, status, data) {
+
+            var rowId = "#Category-" + response.id;
+            $("#CategoriesTable").find(rowId).remove()
+
+            $("#MessageContent").html("<div class='alert alert-sucess'>" + response.message + "</div>");
+        }
+
+        //***********AJAX DELETE Failed*********
+        function deleteFailed(response, status, data) {
+            $("#MessageContent").html("<div class='alert alert-danger'>Delete Unsuccessful. Is this author referenced by a book? If so, change the book's author or delete the book.</div>");
+        }
+
+        ///JOHN I HAVE NOT CHANGED THE BELOW STUFF
+        //**********AJAX CREATE**********
+        $("#CategoryCreate").hide();
+
+        $("#toggleCategoryCreate").click(function () {
+            $("#CategoryCreate").toggle(); //flips between show and hide
+        });
+
+        $("#CategoryCreateForm").submit(function (e) {
+            var formData = $(this).serializeArray();
+            console.log(formData);
+            e.preventDefault();//Stop the page reload
+
+            $.ajax(
+                {
+                    url: "/Categories/AjaxCreate",
+                    type: "POST",
+                    data: formData,
+                    dataType: "json",
+                    error: function (e) {
+                        $("#MessageContent").html("<div class='alert alert-danger'>There was a problem!</div>");
+                    },
+                    success: function (x) {
+                        $("#MessageContent").html("<div class='alert alert-success'>Record added!</div>");
+                        $("#CategoryCreateForm")[0].reset();//this returns the form to its original state and menas it is ready to accept another publisher record
+                        $(function () {
+                            var row = '<tr><td>' + x.CategoryName + '</td><td>Refresh to view options</td></tr>';
+                            $("#CategoriesTable").append(row);
+                        });
+                    }
+                }
+            );
+        });
+    </script>
 }
-
-</table>

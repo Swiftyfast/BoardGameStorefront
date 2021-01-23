@@ -51,10 +51,11 @@ addEventListener("load", function () {
                 <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
                 <input type="checkbox" id="drop" />
                 <ul class="menu ml-auto mt-1">
-                    <li ><a href="@Url.Action("Index", "Home")">Home</a></li>
-                    <li ><a href="@Url.Action("Index", "Products")">Products</a></li>
-                    <li ><a href="@Url.Action("Index", "Departments")">Services</a></li>
-                    <li ><a href="@Url.Action("Index","Employees")">Meet our team</a></li>
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li><a href="@Url.Action("Index", "Products")">Products</a></li>
+                    <li><a href="@Url.Action("Index", "Departments")">Services</a></li>
+                    <li><a href="@Url.Action("Index","Employees")">Meet our team</a></li>
+                    <li><a href="@Url.Action("Index", "Categories")">Categories</a></li>
                     <li>
                         @if (User.IsInRole("Admin"))
                         {
@@ -116,92 +117,7 @@ addEventListener("load", function () {
                         <li class=""><span class="fa mr-1 fa-envelope"></span><a href="#">info@boardgamestore.com</a></li>
                     </ul>
                 </div>
-                @*<div class="col-lg-3 col-sm-6 footv3-left mt-sm-0 mt-4">
-                    <h4 class="mb-sm-4 mb-3 w3f_title"> Our Platforms</h4>
-                    <ul class="list-w3">
-                        <li class="my-2">
-                            <a href="about.html">
-                                Digital Trade Marketing
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="features.html">
-                                Software Development
-                            </a>
-                        </li>
-                        <li class="my-2">
-                            <a href="projects.html">
-                                Cloud Marketing
-                            </a>
-                        </li>
-                        <li class="my-2">
-                            <a href="blogs.html">
-                                Business Intelligence
-                            </a>
-                        </li>
-                        <li>
-                            <a href="contact.html">
-                                Modern Technology
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-sm-4 mt-lg-0 mt-sm-5 mt-4">
-                    <h4 class="mb-sm-4 mb-3 w3f_title">Media Center</h4>
-                    <ul class="list-w3">
-                        <li class="my-2">
-                            <a href="#">
-                                Press Release
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="features.html">
-                                Vision & Values
-                            </a>
-                        </li>
-                        <li class="my-2">
-                            <a href="security.html">
-                                Winning Awards
-                            </a>
-                        </li>
-                        <li class="my-2">
-                            <a href="pricing.html">
-                                Networking
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-sm-4 mt-lg-0 mt-sm-5 mt-4">
-                    <h4 class="mb-sm-4 mb-3 w3f_title">Resources</h4>
-                    <ul class="list-w3">
-                        <li class="my-2">
-                            <a href="#">
-                                24/7 Help Line
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#">
-                                Nearest Branch
-                            </a>
-                        </li>
-                        <li class="my-2">
-                            <a href="#">
-                                Guidance
-                            </a>
-                        </li>
-                        <li class="my-2">
-                            <a href="#">
-                                Download
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Mobile App
-                            </a>
-                        </li>
-                    </ul>
-                </div>*@
-
+                
                 <div class="col-lg-2 col-sm-4 mt-lg-0 mt-sm-5 mt-4">
                     <h4 class="mb-4 w3f_title">Other Links</h4>
                     <ul class="list-w3">
@@ -241,20 +157,20 @@ addEventListener("load", function () {
                 <div class="col-lg-5">
                     <ul class="list-w3 d-sm-flex">
                         @*<li>
-                            <a href="#">
-                                Privicy Policy
-                            </a>
-                        </li>
-                        <li class="mx-4">
-                            <a href="#">
-                                Terms & Conditions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Disclaimer.
-                            </a>
-                        </li>*@
+                                <a href="#">
+                                    Privicy Policy
+                                </a>
+                            </li>
+                            <li class="mx-4">
+                                <a href="#">
+                                    Terms & Conditions
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Disclaimer.
+                                </a>
+                            </li>*@
                         <li>
                             <a href="#">
                             </a>
@@ -275,6 +191,14 @@ addEventListener("load", function () {
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!--ADDEDjQuery UI CDN-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- ADDED jQuery Ajax CDN-->
+    <script src="https://cdn.jsdelivr.net/jquery.ajax.unobtrusive/3.2.4/jquery.unobtrusive-ajax.min.js"></script>
+
+
     @RenderSection("scripts", required: false)
 
 </body>
